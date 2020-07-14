@@ -3,7 +3,7 @@ This is a multer storage engine for Azure's blob storage.
 
 ## Installation
 ```sh
-npm install --save multer-azure
+yarn add @neoxia-js/multer-azure
 ```
 
 ## Usage

@@ -2,24 +2,35 @@
  * This module is a Multer Engine for Azure Blog Storage
  */
 
-import * as azure from 'azure-storage';
+import azure from 'azure-storage';
 
-interface iOpts {
-  account: string,
-  key: string,
+type BlobPathResolver = (req: any, file: any, cb: (error: any, blobPath: string) => void) => void;
+
+interface StorageOptionsConnString {
   connectionString: string,
+  account?: never,
+  key?: never,
   container: string,
-  blobPathResolver: (req: any, file: any, cb: (error: any, blobPath: string) => void) => void;
+  blobPathResolver?: BlobPathResolver;
 }
 
+interface StorageOptionsAcconutKey {
+  connectionString?: never
+  account: string,
+  key: string,
+  container: string,
+  blobPathResolver?: BlobPathResolver;
+}
 
-class Blob {
+export type StorageOptions = StorageOptionsConnString | StorageOptionsAcconutKey;
+
+export class Blob {
   private container: string;
   private blobSvc: azure.BlobService;
   private blobPathResolver: (req: any, file: any, cb: (error: any, blobPath: string) => void) => void;
   private error: any;
   //Creates a new service to interact with azure blob storage
-  constructor(opts: iOpts) {
+  constructor(opts: StorageOptions) {
     this.container = opts.container;
     this.blobSvc = opts.connectionString ? azure.createBlobService(opts.connectionString) : azure.createBlobService(opts.account, opts.key);
     this.createContainer(this.container);
@@ -86,9 +97,6 @@ class Blob {
 }
 
 
-module.exports = function (opts: iOpts) {
+export function getStorage (opts: StorageOptions): Blob {
   return new Blob(opts);
 }
-
-
-

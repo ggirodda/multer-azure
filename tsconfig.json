@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": true,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "incremental": true,
+    "esModuleInterop": true
   },
-  "files":[
-    "index.ts"
-  ],
   "exclude":[
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
-
 }

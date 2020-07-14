@@ -1,32 +1,36 @@
 {
-  "name": "multer-azure",
-  "version": "2.0.1",
-  "description": "Streaming multer storage engine for Azure Blob storage.",
-  "main": "index.js",
+  "name": "@neoxia-js/multer-azure",
+  "version": "1.0.0",
+  "description": "Streaming multer storage engine for Azure Blob storage. Forked from multer-azure",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "build:watch": "tsc -w"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mckalexee/multer-azure.git"
+    "url": "git+https://github.com/ggirodda/multer-azure.git"
   },
   "keywords": [
     "multer",
     "azure",
     "blob"
   ],
-  "author": "Alex McKenzie",
+  "author": "Alex McKenzie (updated by Ciro Alabrese)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mckalexee/multer-azure/issues"
+    "url": "https://github.com/ggirodda/multer-azure/issues"
   },
-  "homepage": "https://github.com/mckalexee/multer-azure#readme",
+  "homepage": "https://github.com/ggirodda/multer-azure#readme",
   "dependencies": {
-    "azure-storage": "^1.4.0"
+    "azure-storage": "^2.10.3"
   },
   "devDependencies": {
-    "@types/node": "^8.0.31",
-    "typescript": "^2.5.3"
+    "@types/node": "^12.12.50",
+    "typescript": "^3.9.6"
   }
 }
